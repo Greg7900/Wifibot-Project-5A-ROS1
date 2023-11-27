@@ -18,13 +18,10 @@
   <!-- If we do not have a robot connected -->
   <group if="$(arg sim)">
     <!-- Publish fake joint states -->
-    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
       <rosparam param="source_list">[move_group/fake_controller_joint_states]</rosparam>
-    </node> -->
-  <!-- send fake joint values -->
-    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
-        <param name="/use_gui" value="true"/>
     </node>
+
     <!-- Given the published joint states, publish tf for the robot links -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
   </group>
@@ -41,7 +38,7 @@
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
   <include file="$(find pincher_arm_moveit_config)/launch/moveit_rviz.launch" if="$(arg use_rviz)">
-    <arg name="rviz_config" value="$(find pincher_arm_moveit_config)/launch/default.rviz"/>
+    <arg name="rviz_config" value="$(find pincher_arm_moveit_config)/launch/moveit.rviz"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>
 
