@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<robot name="pincher_arm" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find pincher_arm_description)/urdf/pincher_arm.xacro"/>
+  
+  <xacro:pincher_arm/>
+
+</robot>

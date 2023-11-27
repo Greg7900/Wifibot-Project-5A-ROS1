@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="bot" >
+    <material name="black">
+        <color rgba="0.2 0.2 0.2 0.6"/>
+    </material>
+
+    <material name="blue">
+        <color rgba="0.0 0.0 0.8 1.0"/>
+    </material>
+
+    <material name="green">
+        <color rgba="0.0 0.8 0.0 1.0"/>
+    </material>
+
+    <material name="gray">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+    </material>  
+
+    <!-- Châssis -->
+    <link name="base_link">
+    </link>
+
+    <xacro:macro name="wifibot">
+        <joint name="chassis_joint" type="fixed">
+            <parent link="base_link"/>
+            <child link="chassis_link"/>
+            <origin xyz="-0.1 0 0"  rpy="0 0 0"/>
+
+        </joint>
+        
+        <link name="chassis_link">
+                <visual>
+                    <origin rpy="0 0 0" xyz="0.13 0 0"/>
+                    <geometry>
+                        <box size="0.26 0.2 0.08"/>
+                    </geometry>
+                    <material name="black"/>
+                </visual>
+                <collision>
+                    <origin rpy="0 0 0" xyz="0 0 0.06"/>
+                    <geometry>
+                        <!--mesh scale="0.001 0.001 0.001" filename="package://manipulator_description/meshes/bow_wifibot.stl"/>-->
+                        <box size="0.26 0.2 0.08"/>
+                    </geometry>
+                </collision>
+        </link>
+        <!-- Roue avant gauche -->
+        <joint name="front_left_wheel_joint" type="continuous">
+            <parent link="base_link"/>
+            <child link="front_left_wheel"/>
+            <origin xyz="0.123 0.1 0"  rpy="-1.57 0 0"/>
+            <axis xyz="0 0 1"/>
+            
+        </joint>
+
+        <link name="front_left_wheel">
+                <inertial>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <mass value="0.01" />
+                    <inertia ixx="7.58333333333e-06" ixy="0.0" ixz="0.0" iyy="7.58333333333e-06" iyz="0.0" izz="1.25e-05"/>
+                </inertial>
+                <collision>
+                    <origin rpy="-1.570796 0 0" xyz="0 0 0.040"/>
+                    <geometry>
+                        <mesh scale="0.418 0.6 0.418 " filename="package://wifibot_arm_description/meshes/wheel_smb.dae"/>
+                    </geometry>
+                </collision>
+                <visual>
+                    <origin rpy="-1.570796 0 0" xyz="0 0 0.040"/>
+                    <geometry>
+                        <mesh scale="0.418 0.6 0.418 " filename="package://wifibot_arm_description/meshes/wheel_smb.dae"/>
+                    </geometry>
+                    <material name="gray"/>
+                </visual>
+        </link>
+
+        <!-- Roue avant droite -->
+        <joint name="front_right_wheel_joint" type="continuous">
+            <parent link="base_link"/>
+            <child link="front_right_wheel"/>
+            <origin xyz="0.123 -0.1 0" rpy="1.57 0 0"/>
+            <axis xyz="0 0 -1"/>
+        </joint>
+
+        <link name="front_right_wheel">
+                <inertial>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <mass value="0.01" />
+                    <inertia ixx="7.58333333333e-06" ixy="0.0" ixz="0.0" iyy="7.58333333333e-06" iyz="0.0" izz="1.25e-05"/>
+                </inertial>
+                <collision>
+                    <origin rpy="1.570796 0 0" xyz="0 0 0.040"/>
+                    <geometry>
+                        <mesh scale="0.418 0.6 0.418 " filename="package://wifibot_arm_description/meshes/wheel_smb.dae"/>
+                    </geometry>
+                </collision>
+                <visual>
+                    <origin rpy="1.570796 0 0" xyz="0 0 0.040"/>
+                    <geometry>
+                        <mesh scale="0.418 0.6 0.418 " filename="package://wifibot_arm_description/meshes/wheel_smb.dae"/>
+                    </geometry>
+                    <material name="gray"/>
+                </visual>
+        </link>
+
+        <!-- Roue arrière gauche -->
+        <joint name="rear_left_wheel_joint" type="continuous">
+            <parent link="base_link"/>
+            <child link="rear_left_wheel"/>
+            <origin xyz="-0.069 0.1 0" rpy="-1.57 0 0"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+
+        <link name="rear_left_wheel">
+                <inertial>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <mass value="0.01" />
+                    <inertia ixx="7.58333333333e-06" ixy="0.0" ixz="0.0" iyy="7.58333333333e-06" iyz="0.0" izz="1.25e-05"/>
+                </inertial>
+                <collision>
+                    <origin rpy="-1.570796 0 0" xyz="0 0 0.040"/>
+                    <geometry>
+                        <mesh scale="0.418 0.6 0.418 " filename="package://wifibot_arm_description/meshes/wheel_smb.dae"/>
+                    </geometry>
+                </collision>
+                <visual>
+                    <origin rpy="-1.570796 0 0" xyz="0 0 0.040"/>
+                    <geometry>
+                        <mesh scale="0.418 0.6 0.418 " filename="package://wifibot_arm_description/meshes/wheel_smb.dae"/>
+                    </geometry>
+                    <material name="gray"/>
+                </visual>
+        </link>
+
+        <!-- Roue arrière droite -->
+        <joint name="rear_right_wheel_joint" type="continuous">
+            <parent link="base_link"/>
+            <child link="rear_right_wheel"/>
+            <origin xyz="-0.069  -0.1 0" rpy="1.57 0 0"/>
+            <axis xyz="0 0 -1"/>
+        </joint>
+
+        <link name="rear_right_wheel">
+                <inertial>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <mass value="0.01" />
+                    <inertia ixx="7.58333333333e-06" ixy="0.0" ixz="0.0" iyy="7.58333333333e-06" iyz="0.0" izz="1.25e-05"/>
+                </inertial>
+                <collision>
+                    <origin rpy="1.570796 0 0" xyz="0 0 0.040"/>
+                    <geometry>
+                        <mesh scale="0.418 0.6 0.418 " filename="package://wifibot_arm_description/meshes/wheel_smb.dae"/>
+                    </geometry>
+                </collision>
+                <visual>
+                    <origin rpy="1.570796 0 0" xyz="0 0 0.040"/>
+                    <geometry>
+                        <mesh scale="0.418 0.6 0.418 " filename="package://wifibot_arm_description/meshes/wheel_smb.dae"/>
+                    </geometry>
+                    <material name="gray"/>
+                </visual>
+        </link>
+  </xacro:macro>
+</robot>

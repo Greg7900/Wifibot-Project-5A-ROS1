@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+
+<launch>
+
+ 
+  <arg name="robot_model_name" default="wifibot_"/>
+
+  <!-- The name of the parameter under which the URDF is loaded -->
+  <arg name="robot_description" default="robot_description"/>
+
+  <!-- Load universal robot description format (URDF) -->
+  <param  name="$(arg robot_description)" command="xacro  '$(find wifibot_arm_description)/xacro/wifibot.urdf.xacro'"/>
+
+  <!-- send fake joint values -->
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
+        <param name="/use_gui" value="true"/>
+    </node>
+
+
+  
+  <!-- Combine joint values -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+
+  <!-- Show in Rviz   -->
+  <!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find manipulator_description)/rviz/default.rviz"/>-->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find wifibot_arm_description)/rviz/wifibot_config_seul.rviz"/>
+
+
+</launch>

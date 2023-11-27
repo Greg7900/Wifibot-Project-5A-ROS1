@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="wifibot" >
+
+    <xacro:include filename="$(find wifibot_arm_description)/xacro/wifibot.xacro"/>
+    <xacro:wifibot/>
+
+</robot>

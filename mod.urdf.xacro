@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot name="pincher_arm" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find pincher_arm_description)/urdf/mod.xacro"/>
+  <xacro:pincher_arm/>
+  <xacro:wifibot/>
+</robot>

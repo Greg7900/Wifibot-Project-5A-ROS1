@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pincher_arm</name>
+  <version>0.2.0</version>
+  <description>
+    The pincher_arm metapackage.
+  </description>
+
+  <author email="blazej@fictionlab.pl">Błażej Sowa</author>
+
+  <maintainer email="support@fictionlab.pl">Fictionlab</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>pincher_arm_bringup</exec_depend>
+  <exec_depend>pincher_arm_description</exec_depend>
+  <exec_depend>pincher_arm_ikfast_plugin</exec_depend>
+  <exec_depend>pincher_arm_moveit_config</exec_depend>
+  <exec_depend>pincher_arm_moveit_demos</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pincher_arm_bringup</name>
+  <version>0.2.0</version>
+  <description>
+    Launch files for starting PhantomX Pincher arm drivers.
+  </description>
+
+  <author email="blazej@fictionlab.pl">Błażej Sowa</author>
+
+  <maintainer email="support@fictionlab.pl">Fictionlab</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>arbotix_python</exec_depend>
+  <exec_depend>arbotix_controllers</exec_depend>
+  <exec_depend>actionlib</exec_depend>
+  <exec_depend>control_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+
+  <exec_depend>pincher_arm_description</exec_depend>
+
+</package>
