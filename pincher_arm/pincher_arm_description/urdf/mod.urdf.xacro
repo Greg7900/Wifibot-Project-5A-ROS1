@@ -3,5 +3,5 @@
 
   <xacro:include filename="$(find pincher_arm_description)/urdf/mod.xacro"/>
   <xacro:pincher_arm/>
-  <xacro:wifibot/>
+  <xacro:wifibot_v2/>
 </robot>

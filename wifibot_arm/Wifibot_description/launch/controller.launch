@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find Wifibot_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="Wifibot" args="front_left_wheel_joint_position_controller front_right_wheel_joint_position_controller rear_left_wheel_joint_position_controller rear_right_wheel_joint_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/Wifibot/joint_states"/>
+</node>
+
+</launch>

@@ -1,0 +1,233 @@
+<?xml version="1.0" ?>
+<robot name="Wifibot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Wifibot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Wifibot_description)/urdf/Wifibot.trans" />
+<xacro:include filename="$(find Wifibot_description)/urdf/Wifibot.gazebo" />
+
+
+
+<link name="base_link">
+</link>
+
+<xacro:macro name="wifibot_v2">
+    <joint name="chassis_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="chassis_link"/>
+      <origin xyz="-0.1 0 0"  rpy="0 0 0"/>
+    </joint>
+    <link name="chassis_link">
+      <inertial>
+        <origin xyz="0.0008538308347129231 -0.00188802983375572 0.06669854261691827" rpy="0 0 0"/>
+        <mass value="30.263664321753744"/>
+        <inertia ixx="0.124124" iyy="0.154149" izz="0.248504" ixy="-2e-05" iyz="-3e-06" ixz="-2.4e-05"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/base_link.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/base_link.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="front_left_wheel_1">
+      <inertial>
+        <origin xyz="-1.7301418626936016e-07 0.046226741977504066 2.256949969164923e-06" rpy="0 0 0"/>
+        <mass value="1.1710647510299943"/>
+        <inertia ixx="0.002726" iyy="0.003208" izz="0.002726" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.090837 -0.102108 -0.06551" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/front_left_wheel_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.090837 -0.102108 -0.06551" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/front_left_wheel_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="front_right_wheel_1">
+      <inertial>
+        <origin xyz="-2.0148622627280677e-07 -0.0462270174481091 2.2569499691510453e-06" rpy="0 0 0"/>
+        <mass value="1.1710647510299943"/>
+        <inertia ixx="0.002726" iyy="0.003208" izz="0.002726" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.090837 0.105892 -0.06551" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/front_right_wheel_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.090837 0.105892 -0.06551" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/front_right_wheel_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="rear_left_wheel_1">
+      <inertial>
+        <origin xyz="-1.7301418654691592e-07 0.04622674197750512 2.25694996924819e-06" rpy="0 0 0"/>
+        <mass value="1.1710647510299943"/>
+        <inertia ixx="0.002726" iyy="0.003208" izz="0.002726" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.089163 -0.102108 -0.06551" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/rear_left_wheel_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+      <collision>
+        <origin xyz="0.089163 -0.102108 -0.06551" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/rear_left_wheel_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="rear_right_wheel_1">
+      <inertial>
+        <origin xyz="-2.0148622641158465e-07 -0.04622701681332976 2.2569499692204342e-06" rpy="0 0 0"/>
+        <mass value="1.1710647510299943"/>
+        <inertia ixx="0.002726" iyy="0.003208" izz="0.002726" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.089163 0.105892 -0.06551" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/rear_right_wheel_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+      <collision>
+        <origin xyz="0.089163 0.105892 -0.06551" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/rear_right_wheel_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="support_v1_1">
+      <inertial>
+        <origin xyz="-0.2017991285587109 -0.17452200920541733 -0.023010000000000128" rpy="0 0 0"/>
+        <mass value="1.2598198733152801"/>
+        <inertia ixx="0.003357" iyy="0.003352" izz="0.006704" ixy="1.2e-05" iyz="0.0" ixz="-0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.215729 -0.171945 -0.13662" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/support_v1_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="white"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.215729 -0.171945 -0.13662" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/support_v1_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="capot_v1_1">
+      <inertial>
+        <origin xyz="0.014910124960665993 0.09303956377418005 0.028422321571636835" rpy="0 0 0"/>
+        <mass value="1.8514525863187674"/>
+        <inertia ixx="0.005929" iyy="0.006616" izz="0.011811" ixy="-5e-06" iyz="2e-06" ixz="-1.5e-05"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.000837 0.094892 -0.11611" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/capot_v1_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="white"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.000837 0.094892 -0.11611" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/capot_v1_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="support_camera_v1_1">
+      <inertial>
+        <origin xyz="0.018121000409102618 2.064957086522854e-07 0.05131900678806825" rpy="0 0 0"/>
+        <mass value="0.25111231247455446"/>
+        <inertia ixx="0.000285" iyy="0.000289" izz="6.7e-05" ixy="0.0" iyz="0.0" ixz="-4e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.072328 0.001896 -0.16111" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/support_camera_v1_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="white"/>
+      </visual>
+      <collision>
+        <origin xyz="0.072328 0.001896 -0.16111" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://Wifibot_description/meshes/support_camera_v1_1.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="front_left_wheel_joint" type="continuous">
+      <origin xyz="0.090837 0.102108 0.06551" rpy="0 0 0"/>
+      <parent link="chassis_link"/>
+      <child link="front_left_wheel_1"/>
+      <axis xyz="0.0 1.0 0.0"/>
+    </joint>
+
+    <joint name="front_right_wheel_joint" type="continuous">
+      <origin xyz="0.090837 -0.105892 0.06551" rpy="0 0 0"/>
+      <parent link="chassis_link"/>
+      <child link="front_right_wheel_1"/>
+      <axis xyz="0.0 1.0 0.0"/>
+    </joint>
+
+    <joint name="rear_left_wheel_joint" type="continuous">
+      <origin xyz="-0.089163 0.102108 0.06551" rpy="0 0 0"/>
+      <parent link="chassis_link"/>
+      <child link="rear_left_wheel_1"/>
+      <axis xyz="0.0 1.0 0.0"/>
+    </joint>
+
+    <joint name="rear_right_wheel_joint" type="continuous">
+      <origin xyz="-0.089163 -0.105892 0.06551" rpy="0 0 0"/>
+      <parent link="chassis_link"/>
+      <child link="rear_right_wheel_1"/>
+      <axis xyz="-0.0 -1.0 -0.0"/>
+    </joint>
+
+    <joint name="Rigide 22" type="fixed">
+      <origin xyz="0.215729 0.171945 0.13662" rpy="0 0 0"/>
+      <parent link="chassis_link"/>
+      <child link="support_v1_1"/>
+    </joint>
+
+    <joint name="Rigide 23" type="fixed">
+      <origin xyz="-0.214892 -0.266837 -0.02051" rpy="0 0 0"/>
+      <parent link="support_v1_1"/>
+      <child link="capot_v1_1"/>
+    </joint>
+
+    <joint name="Rigide 24" type="fixed">
+      <origin xyz="-0.073165 0.092996 0.045" rpy="0 0 0"/>
+      <parent link="capot_v1_1"/>
+      <child link="support_camera_v1_1"/>
+    </joint>
+</xacro:macro>
+</robot>
